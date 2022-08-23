@@ -1,0 +1,7 @@
+<form [formGroup]="addUser" (ngSubmit)="submit()">
+  <label for=name>Name</label>
+  <input formControlName="name">
+  <label for="phone">Phone</label>
+  <input formControlName="phone">
+  <button>Add</button>
+</form>

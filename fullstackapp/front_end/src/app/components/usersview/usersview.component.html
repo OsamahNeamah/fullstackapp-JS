@@ -1,0 +1,27 @@
+<div>
+  <ng-container *ngIf="users">
+    <ul>
+      <li *ngFor="let user of users">
+        <ng-container>
+          <div>{{user.id}}</div>
+          <div>{{user.name}}</div>
+          <div>{{user.phone}}</div>
+          <div><button type="button" (click)="Delete(user.id)">Delete</button></div>
+          <div><button type="button" (click)="updateUser(user.phone,user.name,user.id)">Update</button></div>
+        </ng-container>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-container *ngIf="users.length===0">
+    <h1>No Users To Display</h1>
+  </ng-container>
+
+
+  <button type="button" (click)="addUser()">Add New User</button>
+  <ng-container *ngIf="addform">
+    <app-useradd (submitEvent)="changeview($event)" (usersEvent)="changeUsers($event)"></app-useradd>
+  </ng-container>
+  <ng-container *ngIf="updateform">
+    <app-userupdate (submitEvent)="changeview($event)" (usersEvent)="changeUsers($event)" [name]="name" [phone]="phone" [id]="id"></app-userupdate>
+  </ng-container>
+</div>
